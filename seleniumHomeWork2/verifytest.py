@@ -17,19 +17,17 @@ answerData = {
     }
 }
 driver = webdriver.Chrome(executable_path=r'D:\chromedriver.exe')
-for myname in answerData:
+for name,data in answerData.items():
     driver.get('https://www.google.com/')
     searchElement = driver.find_element(By.XPATH,'/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input')
-    searchElement.send_keys(myname)
+    searchElement.send_keys(name)
     searchElement.send_keys(Keys.RETURN)
     searchTitle = driver.find_element(By.XPATH,'//*[@id="rso"]/div[4]/div/div[1]/div/a/h3')
-    link = driver.find_element(By.XPATH,'//*[@id="rso"]/div[4]/div/div[1]/div/a').get_attribute('href')
+    linkElement = driver.find_element(By.XPATH,'//*[@id="rso"]/div[4]/div/div[1]/div/a')
     textTitle = searchTitle.text
-    if answerData["Denny"]["title"]== textTitle and answerData["Denny"]["link"] == link:
-        print(textTitle,link)
-        print("成功")
-    elif answerData["Gary"]["title"] == textTitle and answerData["Gary"]["link"] == link:
-        print(textTitle,link)
+    linkText = linkElement.get_attribute('href')
+    if answerData[name]["title"] == textTitle and answerData[name]["link"] == linkText:
+        print(textTitle,linkText)
         print("成功")
     else:
         print("失敗")
