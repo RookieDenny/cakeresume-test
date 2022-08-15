@@ -1,10 +1,9 @@
 {
     "taiwan":"台灣",
     "taiwanEg":"Taiwan",
-    "PageUrl":"https://www.cakeresume.com/jobs?page=2",
-    "searchVerification":{
-        "companyName":"統一超商股份有限公司（7-ELEVEN)",
-       "searchName":"統一超商"
+    "page_url":"https://www.cakeresume.com/jobs?page=2",
+    "search_verification":{
+        "company_name":"統一超商股份有限公司（7-ELEVEN)",
+        "search_name":"統一超商"
     }
 }
-
