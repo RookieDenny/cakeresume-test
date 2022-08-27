@@ -15,15 +15,12 @@ answer = ['地點','職務類別','工作型態','資歷','年資','薪資','管
 advanced_search = driver.find_element(By.XPATH,'//*[@id="__next"]/div/div[2]/div[1]/div[2]/div[4]/button')
 advanced_search.click()
 all_advanced_filter = driver.find_elements(By.CLASS_NAME,'JobSearchPage_searchFilter__u5x7s')
-count = 1
 for x in all_advanced_filter:
-    if x.text in answer:
-        if count == 12:
-            print("Check advanced search Is there a display pass")
-    else:
-        print(x.text+"Check advanced search Is there a display fail")
+    if x.text not in answer:
+        print("Check advanced search Is there a display fail")
         break
-    count += 1
+else:
+    print("Check advanced search Is there a display pass")
 driver.get('https://www.cakeresume.com/jobs')
 
 #Check filter company whether succeed
@@ -32,10 +29,13 @@ time.sleep(1)
 company_button = driver.find_element(By.XPATH,'//*[@id="__next"]/div/div[2]/div[1]/div[2]/div[1]/div[2]/div/div[2]/a')
 company_button.click()
 time.sleep(2)
-if driver.find_elements(By.CLASS_NAME,'Button_button__N4TAn Button_buttonSecondary__IeCFQ Button_buttonMedium__G0RRs Button_buttonIconLeft__DAz5D'):
-    print("Check filter company whether succeed fail")
+button_field = driver.find_elements(By.CLASS_NAME,'CompanySearchItem_actions__SlIDN')
+for x in button_field:
+    if data['apply_text'] in x.text:
+        print('Check filter company whether succeed fail')
+        break
 else:
-    print("Check filter company whether succeed pass")
+    print('Check filter company whether succeed pass')
 driver.get('https://www.cakeresume.com/jobs')
 
 #Check filter place taiwan whether succeed
@@ -45,17 +45,15 @@ place_element.click()
 taiwan_element = driver.find_element(By.XPATH,'//*[@id="__next"]/div/div[2]/div[1]/div[2]/div[3]/div[1]/div/div[2]/div/div/div/div[2]/div[2]/div')
 taiwan_element.click()
 time.sleep(2)
-count = 1
-while count <= 10:
-    label_place = driver.find_element(By.XPATH,'//*[@id="__next"]/div/div[2]/div[1]/div[6]/div/div/div['+str(count)+']/div/div[2]/div[1]/div[2]/div[2]/div[2]/div/a')
-    get_label_text = label_place.text
-    if data["taiwan"] in get_label_text or data["taiwanEg"] in get_label_text:
-        if count == 10:
-            print("Check filter place taiwan whether succeed pass")
+place_field = driver.find_elements(By.CLASS_NAME,'JobSearchItem_featureSegmentLink__0qG7L')
+for x in place_field:
+    if data["taiwan"] or data["taiwanEg"] in x.text:
+        pass
     else:
-        print(get_label_text + "Check filter place taiwan whether succeed fail")
-        count +=10
-    count += 1
+        print('Check filter place taiwan whether succeed fail')
+        break
+else:
+    print('Check filter place taiwan whether succeed pass')
 driver.get('https://www.cakeresume.com/jobs')
 
 #Check filter work type intern whether succeed
@@ -84,13 +82,12 @@ for index,add in filterField.items():
     while count <= 10:
         label = driver.find_element(By.XPATH,'//*[@id="__next"]/div/div[2]/div[1]/div[6]/div/div/div['+ str(count)+']/div/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]')
         labelTittle = label.text.replace('\n','')
-        if filterField[index]["comparison"] == labelTittle:
-            if count == 10:
-                print(filterField[index]["name"]+"pass")
-        else:
-            print(filterField[index]["name"] +"fail")
-            count += 10
         count += 1
+        if filterField[index]["comparison"] != labelTittle:
+            print(filterField[index]["name"] +"fail")
+            break
+    else:
+        print(filterField[index]["name"] +"pass")
     driver.get('https://www.cakeresume.com/jobs')
 
 #Check new sort whether succeed
@@ -132,29 +129,28 @@ searchElement = driver.find_element(By.XPATH,'//*[@id="__next"]/div/div[2]/div[1
 searchElement.send_keys(data["search_verification"]["search_name"])
 searchElement.send_keys(Keys.RETURN)
 time.sleep(2)
-count = 1
 grab_subtitle = driver.find_elements(By.CLASS_NAME,'JobSearchItem_companyName__QKkj5')
 for x in grab_subtitle:
-    if x.text == data["search_verification"]["company_name"]:
-        if count == 10:
-            print("Check search input value can work successful pass")
-    else:
-        print(x.text + "Check search input value can work successful fail")
-        break
-    count+=1
+    if x.text != data["search_verification"]["company_name"]:
+        print("Check search input value can work successful fail")
+else:
+    print("Check search input value can work successful pass")
 driver.get('https://www.cakeresume.com/jobs')
 
 #Check streamline typesetting did succeed
 #檢查精簡排版正確
-gear_button_element = driver.find_element(By.XPATH,'//*[@id="__next"]/div/div[2]/div[1]/div[5]/div[2]/div[2]/div[1]')
+describe_element = driver.find_element(By.CLASS_NAME,'JobSearchItem_description__tNSbN')
+gear_button_element = driver.find_element(By.XPATH,'//*[@id="__next"]/div/div[2]/div[1]/div[5]/div[2]/div[2]/div[1]/button')
 gear_button_element.click()
 typesetting_button = driver.find_element(By.XPATH,'//*[@id="__next"]/div/div[2]/div[1]/div[5]/div[2]/div[2]/div[2]/div/div/ul/li[2]/div/div[1]/div')
 typesetting_button.click()
 time.sleep(2)
-if driver.find_elements(By.CLASS_NAME,'JobSearchItem_description__tNSbN'):
-    print("Check streamline typesetting did succeed fail")
+each_field = driver.find_elements(By.CLASS_NAME,'JobSearchItem_wrapper__0zoCh')
+for x in each_field:
+    if describe_element in each_field:
+        print('Check streamline typesetting did succeed fail')
 else:
-    print("Check streamline typesetting did succeed pass")
+    print('Check streamline typesetting did succeed pass')
 driver.get('https://www.cakeresume.com/jobs')
 
 #Check the second page url correct
