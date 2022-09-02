@@ -1,10 +1,66 @@
 {
-    "taiwan":"台灣",
-    "taiwanEg":"Taiwan",
-    "page_url":"https://www.cakeresume.com/jobs?page=2",
-    "apply_text":"立即應徵",
-    "search_verification":{
-        "company_name":"統一超商股份有限公司（7-ELEVEN)",
-        "search_name":"統一超商"
+    "advanced_search":{
+        "advanced_search_result":"地點,職務類別,工作型態,資歷,年資,薪資,管理責任,遠端工作,公司規模,公司產業,公司使用技術,職缺描述語言",
+        "advanced_search_xpath":"//*[@id=\"__next\"]/div/div[2]/div[1]/div[2]/div[4]/button",
+        "advanced_search_classname":"JobSearchPage_searchFilter__u5x7s",
+        "advanced_search_testcase":"Check advanced search Is there a display"
+    },
+    "filter_company":{
+        "filter_company_xpath":"//*[@id=\"__next\"]/div/div[2]/div[1]/div[2]/div[1]/div[2]/div/div[2]",
+        "filter_company_classname":"CompanySearchItem_actions__SlIDN",
+        "apply_now":"立即應徵",
+        "filter_company_testcase":"Check filter company whether succeed"
+    },
+    "filter_place":{
+        "filter_place_xpath":"//*[@id=\"__next\"]/div/div[2]/div[1]/div[2]/div[3]/div[1]/div/div[1]/button",
+        "filter_place_button_xpath":"//*[@id=\"__next\"]/div/div[2]/div[1]/div[2]/div[3]/div[1]/div/div[2]/div/div/div/div[2]/div[2]",
+        "filter_place_classname":"JobSearchItem_featureSegmentLink__0qG7L",
+        "taiwan":"台灣",
+        "taiwanEg":"Taiwan",
+        "filter_place_testcase":"Check filter place taiwan whether succeed"
+    },
+    "filterField":{
+        "intern":{
+            "element":"//*[@id=\"__next\"]/div/div[2]/div[1]/div[2]/div[3]/div[3]/div/div[1]/button",
+            "check":"//*[@id=\"__next\"]/div/div[2]/div[1]/div[2]/div[3]/div[3]/div/div[2]/div/div/div/div/div[3]/div",
+            "comparison":"實習生・實習",
+            "name":"Check filter work type intern whether succeed"
+        },
+        "elementary":{
+            "element":"//*[@id=\"__next\"]/div/div[2]/div[1]/div[2]/div[3]/div[4]/div/div[1]/button",
+            "check":"//*[@id=\"__next\"]/div/div[2]/div[1]/div[2]/div[3]/div[4]/div/div[2]/div/div/div/div/div[1]/div",
+            "comparison":"全職・初階",
+            "name":"Check filter seniority elementary whether succeed"
+        }
+    },
+    "new_sort":{
+        "new_sort_button_xpath":"//*[@id=\"__next\"]/div/div[2]/div[1]/div[5]/div[2]/div[1]/div[1]/button",
+        "new_sort_xpath":"//*[@id=\"__next\"]/div/div[2]/div[1]/div[5]/div[2]/div[1]/div[2]/div/div/ul/li[2]",
+        "new_sort_testcase":"Check new sort whether succeed"
+    },
+    "search":{
+        "search_xpath":"//*[@id=\"__next\"]/div/div[2]/div[1]/div[2]/div[1]/div[1]/div/div[1]/input",
+        "search_enter":"統一超商",
+        "search_classname":"JobSearchItem_companyName__QKkj5",
+        "search_result":"統一超商股份有限公司（7-ELEVEN)",
+        "search_testcase":"Check search input value can work successful"
+    },
+    "streamline_typesetting":{
+        "streamline_typesetting_classname":"JobSearchItem_description__tNSbN",
+        "streamline_typesetting_xpath":"//*[@id=\"__next\"]/div/div[2]/div[1]/div[5]/div[2]/div[2]/div[1]/button",
+        "streamline_typesetting_button_xpath":"//*[@id=\"__next\"]/div/div[2]/div[1]/div[5]/div[2]/div[2]/div[2]/div/div/ul/li[2]/div/div[1]",
+        "streamline_typesetting_describe_classname":"JobSearchItem_content__TKBfA",
+        "streamline_typesetting_testcase":"Check streamline typesetting did succeed"
+    },
+    "second_page":{
+        "second_page_xpath":"//*[@id=\"__next\"]/div/div[2]/div[1]/div[7]/div/a[10]",
+        "second_innerpage_xpath":"/html/head/link[2]",
+        "second_page_url":"https://www.cakeresume.com/jobs?page=2",
+        "second_page_testcase":"Check the second page url correct"
+    },
+    "title_Same":{
+        "title_Same_xpath":"//*[@id=\"__next\"]/div/div[2]/div[1]/div[6]/div/div/div[1]/div/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/a",
+        "title_Same_classname":"JobDescriptionLeftColumn_title__heKvX",
+        "title_Same_testcase":"Check vacancies title and Content page title Same"
     }
 }
