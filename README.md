@@ -5,4 +5,5 @@ https://docs.google.com/spreadsheets/d/1r4lDTOjFRqjiXP9lrVnSRUNI4SnelUhKxRHf2eG7
 DEMO影片:<br>
 https://drive.google.com/file/d/1hm5aFiZ7W5DwNQNCxwbHwMcxxI3bzlww/view?usp=sharing
 ## 執行
+pipenv install
 pipenv run python index.py
