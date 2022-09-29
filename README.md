@@ -4,3 +4,5 @@
 https://docs.google.com/spreadsheets/d/1r4lDTOjFRqjiXP9lrVnSRUNI4SnelUhKxRHf2eG77_8/edit?usp=sharing<br>
 DEMO影片:<br>
 https://drive.google.com/file/d/1hm5aFiZ7W5DwNQNCxwbHwMcxxI3bzlww/view?usp=sharing
+## 執行
+python index.py
