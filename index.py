@@ -1,12 +1,14 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.service import Service as ChromeService 
+from webdriver_manager.chrome import ChromeDriverManager
 import time
 import json
 
 with open("config.json",mode="r",encoding="utf-8") as file:
     data = json.load(file)
-driver = webdriver.Chrome(executable_path=r'D:\chromedriver.exe')
+driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 driver.get('https://www.cakeresume.com/jobs')
 #Check advanced search Is there a display
 #檢查進階搜尋功能正確
